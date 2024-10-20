@@ -68,7 +68,7 @@ DT_incorporar_dataset_competencia2024 <- function()
 {
   if( -1 == (param_local <- exp_init())$resultado ) return( 0 ) # linea fija
   
-  param_local$meta$script <- "/src/wf-etapas/z1101_DT_incorporar_dataset.r"
+  param_local$meta$script <- "/src/Entrega_Modelo_final/wf-etapas/z1101_DT_incorporar_dataset.r"
   
   param_local$archivo_absoluto <- envg$EXPENV$miAmbiente$dataset_competencia
   param_local$primarykey <- c("numero_de_cliente", "foto_mes" )
@@ -89,7 +89,7 @@ CA_catastrophe_base <- function( pinputexps, metodo )
 {
   if( -1 == (param_local <- exp_init())$resultado ) return( 0 ) # linea fija
   
-  param_local$meta$script <- "/src/wf-etapas/z1201_CA_reparar_dataset.r"
+  param_local$meta$script <- "/src/Entrega_Modelo_final/wf-etapas/z1201_CA_reparar_dataset.r"
   
   # Opciones MachineLearning EstadisticaClasica Ninguno
   param_local$metodo <- metodo
@@ -106,7 +106,7 @@ FEintra_manual_base <- function( pinputexps )
   if( -1 == (param_local <- exp_init())$resultado ) return( 0 ) # linea fija
   
   
-  param_local$meta$script <- "/src/wf-etapas/1301_FE_intrames_manual.r"
+  param_local$meta$script <- "/src/Entrega_Modelo_final/wf-etapas/1301_FE_intrames_manual.r"
   
   param_local$semilla <- NULL  # no usa semilla, es deterministico
   
@@ -121,7 +121,7 @@ DR_drifting_base <- function( pinputexps, metodo)
   if( -1 == (param_local <- exp_init())$resultado ) return( 0 ) # linea fija
   
   
-  param_local$meta$script <- "/src/wf-etapas/z1401_DR_corregir_drifting.r"
+  param_local$meta$script <- "/src/Entrega_Modelo_final/wf-etapas/z1401_DR_corregir_drifting.r"
   
   # valores posibles
   #  "ninguno", "rank_simple", "rank_cero_fijo", "deflacion", "estandarizar"
@@ -139,7 +139,7 @@ FEhist_base <- function( pinputexps)
   if( -1 == (param_local <- exp_init())$resultado ) return( 0 ) # linea fija
   
   
-  param_local$meta$script <- "/src/wf-etapas/z1501_FE_historia.r"
+  param_local$meta$script <- "/src/Entrega_Modelo_final/wf-etapas/z1501_FE_historia.r"
   
   param_local$lag1 <- TRUE
   param_local$lag2 <- FALSE # no me engraso con los lags de orden 2
@@ -179,7 +179,7 @@ FErf_attributes_base <- function( pinputexps, ratio, desvio)
   if( -1 == (param_local <- exp_init())$resultado ) return( 0 )# linea fija
   
   
-  param_local$meta$script <- "/src/wf-etapas/z1311_FE_rfatributes.r"
+  param_local$meta$script <- "/src/Entrega_Modelo_final/wf-etapas/z1311_FE_rfatributes.r"
   
   # Parametros de un LightGBM que se genera para estimar la column importance
   param_local$train$clase01_valor1 <- c( "BAJA+2", "BAJA+1")
@@ -237,7 +237,7 @@ CN_canaritos_asesinos_base <- function( pinputexps, ratio, desvio)
   if( -1 == (param_local <- exp_init())$resultado ) return( 0 )# linea fija
   
   
-  param_local$meta$script <- "/src/wf-etapas/z1601_CN_canaritos_asesinos.r"
+  param_local$meta$script <- "/src/Entrega_Modelo_final/wf-etapas/z1601_CN_canaritos_asesinos.r"
   
   # Parametros de un LightGBM que se genera para estimar la column importance
   param_local$train$clase01_valor1 <- c( "BAJA+2", "BAJA+1")
@@ -266,7 +266,7 @@ TS_strategy_base9 <- function( pinputexps )
 {
   if( -1 == (param_local <- exp_init())$resultado ) return( 0 )# linea fija
   
-  param_local$meta$script <- "/src/wf-etapas/z2101_TS_training_strategy.r"
+  param_local$meta$script <- "/src/Entrega_Modelo_final/wf-etapas/z2101_TS_training_strategy.r"
   
   param_local$future <- c(202109)
   
@@ -318,7 +318,7 @@ HT_tuning_semillerio <- function( pinputexps, semillerio, bo_iteraciones, bypass
 {
   if( -1 == (param_local <- exp_init(pbypass=bypass))$resultado ) return( 0 ) # linea fija bypass
   
-  param_local$meta$script <- "/src/wf-etapas/z2213_HT_lightgbm_SEMI.r"
+  param_local$meta$script <- "/src/Entrega_Modelo_final/wf-etapas/z2213_HT_lightgbm_SEMI.r"
   
   
   # En caso que se haga cross validation, se usa esta cantidad de folds
@@ -388,7 +388,7 @@ FM_final_models_lightgbm_semillerio <- function( pinputexps, ranks, semillerio, 
 {
   if( -1 == (param_local <- exp_init())$resultado ) return( 0 )# linea fija
   
-  param_local$meta$script <- "/src/wf-etapas/z2302_FM_final_models_lightgbm_SEMI.r"
+  param_local$meta$script <- "/src/Entrega_Modelo_final/wf-etapas/z2302_FM_final_models_lightgbm_SEMI.r"
   
   # Que modelos quiero, segun su posicion en el ranking de la Bayesian Optimizacion, ordenado por metrica descendente
   param_local$modelos_rank <- ranks
@@ -414,7 +414,7 @@ SC_scoring_semillerio <- function( pinputexps )
 {
   if( -1 == (param_local <- exp_init())$resultado ) return( 0 )# linea fija
   
-  param_local$meta$script <- "/src/wf-etapas/z2402_SC_scoring_lightgbm_SEMI.r"
+  param_local$meta$script <- "/src/Entrega_Modelo_final/wf-etapas/z2402_SC_scoring_lightgbm_SEMI.r"
   
   param_local$semilla <- NULL  # no usa semilla, es deterministico
   
@@ -428,7 +428,7 @@ KA_evaluate_kaggle_semillerio <- function( pinputexps )
 {
   if( -1 == (param_local <- exp_init())$resultado ) return( 0 )# linea fija
   
-  param_local$meta$script <- "/src/wf-etapas/z2602_KA_evaluate_kaggle_SEMI.r"
+  param_local$meta$script <- "/src/Entrega_Modelo_final/wf-etapas/z2602_KA_evaluate_kaggle_SEMI.r"
   
   param_local$semilla <- NULL  # no usa semilla, es deterministico
   
